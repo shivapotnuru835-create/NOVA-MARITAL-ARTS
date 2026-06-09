@@ -57,21 +57,98 @@
         }
 
         /* MENU */
+        /* MAIN DROPDOWN */
         .nav-right ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 25px;
         }
 
         .nav-right ul li {
-            list-style: none;
+            position: relative;
         }
 
         .nav-right ul li a {
-            color: white;
             text-decoration: none;
-            font-size: 15px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
+        .nav-right li.dropdown>ul.dropdown,
+        .nav-right li.dropdown>ul.dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            z-index: 1000;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .nav-right ul.dropdown li a,
+        .nav-right ul.dropdown-menu li a {
+            color: #333 !important;
+            display: block;
+            padding: 10px 20px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .has-sub-dropdown {
+            position: relative;
+        }
+
+        .has-sub-dropdown .sub-dropdown {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #ffffff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            list-style: none;
+        }
+
+        .nav-right li.dropdown:hover>ul.dropdown,
+        .nav-right li.dropdown:hover>ul.dropdown-menu {
+            display: flex;
+        }
+
+        .has-sub-dropdown:hover .sub-dropdown {
+            display: block;
+        }
+
+        .nav-right ul.dropdown li:hover>a,
+        .nav-right ul.dropdown-menu li:hover>a {
+            background-color: #e03a3a;
+            color: #ffffff !important;
+        }
+
+        .arrow-down::after {
+            content: " ▼";
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        .arrow-right::after {
+            content: " ▶";
+            font-size: 10px;
+            float: right;
+            margin-top: 3px;
+        }
+
+        /* end */
         .classes {
             color: white;
             text-align: center;
@@ -82,6 +159,33 @@
             font-size: 60px;
             margin-bottom: 10px;
         }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 998;
+        }
+
+        /* .hamburger {
+            display: none;
+        } */
+        .hamburger {
+            display: none;
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+
 
         .classes p {
             font-size: 20px;
@@ -319,6 +423,91 @@
                 transform: translateY(0);
             }
         }
+
+        /* responsive */
+        @media screen and (max-width:992px) {
+
+            .navbar {
+                padding: 20px 20px;
+                margin-left: 120px;
+                margin-right: 120px;
+
+
+            }
+
+
+
+            .hamburger {
+                display: block;
+            }
+
+
+
+            .nav-right {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 260px;
+                height: 100vh;
+                background: #fff;
+                padding: 80px 20px;
+                transform: translateX(100%);
+                transition: .3s;
+                z-index: 999;
+            }
+
+            #menu-toggle:checked~.nav-right {
+                transform: translateX(0);
+            }
+
+
+
+            .nav-right ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-right ul li a {
+                color: black;
+            }
+
+            .classes h1 {
+                font-size: 60px;
+                margin-top: -60px;
+            }
+
+            .bottom {
+                display: flex;
+                width: 100%;
+            }
+
+            .bottom1,
+            .bottom2,
+            .bottom3,
+            .bottom4,
+            .bottom5,
+            .bottom6 {
+                width: 100% !important;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: start;
+
+
+            }
+
+            .footer1 {
+                align-items: center;
+                justify-content: center;
+                margin-left: 100px;
+            }
+
+            .underground {
+                justify-content: center;
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -330,12 +519,34 @@
             <div class="nav-left">
                 <a href="#">NOVA</a>
             </div>
+            <input type="checkbox" id="menu-toggle">
+
+            <label for="menu-toggle" class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <label for="menu-toggle" class="overlay"></label>
 
 
             <div class="nav-right">
                 <ul>
                     <li><a href="home.html">HOME</a></li>
-                    <li><a href="#">DROPDOWN</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link-1">DROPDOWN <span class="arrow-down"></span></a>
+                        <ul class="dropdown">
+                            <li><a href="#">MENU ONE</a></li>
+                            <li class="has-sub-dropdown">
+                                <a href="#">Menu Two <span class="arrow-right"></span></a>
+                                <ul class="sub-dropdown">
+                                    <li><a href="#">Sub Menu One</a></li>
+                                    <li><a href="#">Sub Menu Two</a></li>
+                                    <li><a href="#">Sub Menu Three</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Menu Three</a></li>
+                        </ul>
+                    </li>
+
                     <li><a href="classes.html">CLASSES</a></li>
                     <li><a href="blog.html">BLOG</a></li>
                     <li><a href="about.html">ABOUT</a></li>
