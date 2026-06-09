@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* TOP COLOR BAR */
+        .linear-gradient {
+            height: 10px;
+            width: 100%;
+            background: linear-gradient(to right,
+                    darkcyan 0 20%,
+                    tomato 20% 40%,
+                    teal 40% 60%,
+                    darkslateblue 60% 80%,
+                    red 80% 100%);
+        }
+
+        /* HERO SECTION */
+        .big {
+            width: 100%;
+            height: 100vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.4)),
+                url("https://preview.colorlib.com/theme/nova/images/hero_1.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 120px;
+        }
+
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .nav-right ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-right ul li {
+            list-style: none;
+        }
+
+        .nav-right ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        /* HERO TEXT */
+        .classes {
+            text-align: center;
+            color: white;
+            margin-top: 220px;
+        }
+
+        .classes h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .classes p {
+            font-size: 20px;
+        }
+
+        /* animation */
+        .classes h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+            animation: fadeUp 1.2s ease;
+        }
+
+        .classes p {
+            font-size: 20px;
+            animation: fadeUp 1.8s ease;
+        }
+
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ABOUT SECTION */
+        .second-section {
+
+            display: flex;
+            justify-content: space-between;
+            margin-top: 130px;
+
+
+
+        }
+
+
+
+        .second-right {
+
+            height: 100%;
+
+
+        }
+
+        .second-left {
+
+            margin-left: 100px;
+        }
+
+        .second-left h1 {
+            font-size: 40px;
+            color: red;
+        }
+
+        .second-left p {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 400;
+            color: gray;
+        }
+
+        .second-right img {
+            width: 630px;
+            height: 500px;
+            border-top-left-radius: 30%;
+            border-bottom-right-radius: 30%;
+        }
+
+        .second-left ul {
+            font-size: 18px;
+            margin-top: 40px;
+            margin-left: 17px;
+
+            color: gray;
+        }
+
+        .second-left li {
+
+            padding-left: 13px;
+
+
+        }
+
+        .second-left li::marker {
+            color: red;
+            font-size: 30px;
+
+        }
+
+        .button {
+            margin-top: 50px;
+        }
+
+        .button button {
+            padding: 15px 35px;
+            background-color: #e63946;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        /* third-section */
+        .third-section {
+            margin-top: 250px;
+            margin-bottom: 100px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .third-section h1 {
+            color: red;
+            font-size: 40px;
+        }
+
+
+
+
+        /* cards */
+
+        .cards {
+            width: 100%;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+
+
+
+        .card1 {
+            background-color: #F8EFD4;
+
+        }
+
+        .card2 {
+            background-color: #DDF8F6;
+
+        }
+
+        .card3 {
+            background-color: #e6e7f6;
+
+        }
+
+        .card4 {
+            background-color: #F9E4E4;
+
+        }
+
+        .card1,
+        .card2,
+        .card3,
+        .card4 {
+            width: 300px;
+
+            height: 400px;
+            padding: 30px;
+            text-align: center;
+            border-top-left-radius: 60px;
+            border-top-right-radius: 60px;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 170px;
+        }
+
+        .card1 img,
+        .card2 img,
+        .card3 img,
+        .card4 img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: -90px;
+
+        }
+
+        .card1 h1,
+        .card2 h1,
+        .card3 h1,
+        .card4 h1 {
+            font-size: 24px;
+            margin-top: 40px;
+
+        }
+
+        .card1 span,
+        .card2 span,
+        .card3 span,
+        .card4 span {
+            color: gray;
+            font-size: 20px;
+        }
+
+        .card1 p,
+        .card2 p,
+        .card3 p,
+        .card4 p {
+            color: #666;
+
+            margin-top: 40px;
+        }
+
+        /* footer */
+        .seven {
+            margin: 200px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 150px;
+            margin: 30px;
+        }
+
+        .footer1 p {
+            margin-top: 20px;
+        }
+
+        .footer1 h3 {
+            margin-top: 25px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: gray;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+        .social-icons i {
+            color: white;
+
+            font-size: 18px;
+        }
+
+        .underground {
+            justify-content: center;
+            font-size: 18px;
+            color: gray;
+            margin: 100px;
+            display: flex;
+        }
+
+        .underground a {
+            color: red;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .fa-heart {
+            color: red;
+            font-size: 20px;
+        }
+
+        .social-icons a:hover {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="linear-gradient"></div>
+
+    <!-- HERO -->
+    <div class="big">
+
+        <div class="navbar">
+            <div class="nav-left">
+                <a href="nova.html">NOVA</a>
+            </div>
+
+            <div class="nav-right">
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="#">DROPDOWN</a></li>
+                    <li><a href="classes.html">CLASSES</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="CONTACT US.html">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="classes">
+            <h1>ABOUT US</h1>
+            <p>Far far away, behind the word mountains</p>
+        </div>
+
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <div class="second-section">
+
+        <div class="second-left">
+
+            <img class="divider" src="https://preview.colorlib.com/theme/nova/images/karate-divider.png" alt="divider">
+
+            <h1>ENCOURAGE YOUR</h1>
+            <h1>KIDS TO LEARN</h1>
+
+
+            <p>
+                Far far away, behind the word mountains, far from the<br>
+                countries Vokalia and Consonantia, there live the blind<br>
+                texts. Separated they live in Bookmarksgrove right at the<br>
+                coast of the Semantics, a large language ocean.
+            </p>
+
+            <ul>
+                <li>Taekwondo</li>
+                <li>Brazilian Jiu-Jitsu</li>
+                <li>Muay Thai</li>
+                <li>Basic Defense</li>
+            </ul>
+
+            <div class="button">
+                <button>ENROLL NOW</button>
+            </div>
+
+        </div>
+
+        <div class="second-right">
+            <img src="https://preview.colorlib.com/theme/nova/images/hero_1.jpg" alt="Karate Kids">
+        </div>
+
+    </div>
+    <div class="third-section">
+
+        <img src="https://preview.colorlib.com/theme/nova/images/karate-divider.png" alt="divider">
+        <h1>Our Teachers</h1>
+
+
+
+    </div>
+    <!-- three-card -->
+    <div class="cards">
+
+        <div class="card1">
+            <img src="https://preview.colorlib.com/theme/nova/images/person_1.jpg">
+            <h1>Maria Jones
+            </h1>
+            <span>Instructor</span>
+
+            <p>Far far away, behind the word<br> mountains, far from the<br> countries Vokalia and <br>Consonantia,
+                there
+                live
+                the
+                blind texts. Separated they live in <br>Bookmarksgrove right at the <br>coast of the Semantics, a
+                large<br> language
+                ocean.</p>
+
+        </div>
+        <div class="card2">
+            <img src="https://preview.colorlib.com/theme/nova/images/person_2.jpg">
+            <h1>James Campbel</h1>
+            <span>Instructor</span>
+
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                the
+                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
+                language
+                ocean.</p>
+
+        </div>
+        <div class="card3">
+            <img src="https://preview.colorlib.com/theme/nova/images/person_3.jpg">
+            <h1>Rob Smith</h1>
+            <span>Instructor</span>
+
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                the
+                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
+                language
+                ocean.</p>
+
+
+        </div>
+        <div class="card4">
+            <img src="https://preview.colorlib.com/theme/nova/images/person_4.jpg">
+            <h1>Kaye Hamilton</h1>
+            <span>Instructor</span>
+
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                the
+                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
+                language
+                ocean.</p>
+
+
+        </div>
+    </div>
+    <div class="seven"></div>
+    <div class="footer">
+        <div class="footer1">
+            <h2>About Foundation</h2>
+            <p>Far far away, behind the word mountains, far from<br> the countries Vokalia and Consonantia, there live
+                the
+                blind texts.</p>
+            <h3>Connect</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+
+                <a href="#"><i class="fa-solid fa-circle-notch"></i></a>
+            </div>
+
+        </div>
+        <div class="footer1">
+            <h2>Links</h2>
+            <p>About Us</p>
+            <p>Services</p>
+            <p>News</p>
+            <p>Careers</p>
+            <p>Contact</p>
+
+
+        </div>
+        <div class="footer1">
+            <h2>Company</h2>
+            <p>About Us</p>
+            <p>Services</p>
+            <p>News</p>
+            <p>Careers</p>
+            <p>Contact</p>
+
+
+        </div>
+        <div class="footer1">
+            <h2>Contact</h2>
+            <p>43 Raymouth Rd. Baltemoer, London 3910</p>
+            <p>+1(123)-456-7890</p>
+            <p>+1(123)-456-7890</p>
+            <p>info@mydomain.com</p>
+
+
+        </div>
+    </div>
+    <div class="underground">
+        <p>Copyright ©2026 All rights reserved | This template is made with </p>
+        <i class="fa-solid fa-heart"></i>by
+        <a href="#"> Colorlib</a>
+    </div>
+
+</body>
+
+</html>

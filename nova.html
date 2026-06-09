@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* LINEAR GRADIENT BAR */
+        .linear-gradient {
+            height: 10px;
+            width: 100%;
+            background: linear-gradient(to right,
+                    darkcyan 0 20%,
+                    tomato 20% 40%,
+                    teal 40% 60%,
+                    darkslateblue 60% 80%,
+                    red 80% 100%);
+        }
+
+        /* HERO */
+        .big {
+            width: 100%;
+            height: 100vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.4)),
+                url("https://preview.colorlib.com/theme/nova/images/hero_1.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 120px;
+        }
+
+        /* LOGO */
+        .nav-left a {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* MENU */
+        .nav-right ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-right ul li {
+            list-style: none;
+        }
+
+        .nav-right ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        /* HAMBURGER */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* OVERLAY */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            z-index: 998;
+        }
+
+        #menu-toggle:checked~.overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* CENTER TEXT */
+        .text {
+            margin-top: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: bold;
+
+        }
+
+        .text h1 {
+            color: white;
+            font-size: 70px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .text p {
+            color: white;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* button */
+
+
+        .video {
+            margin-top: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+        }
+
+        .video a {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: aliceblue;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+        .video i {
+            color: black;
+            font-size: 22px;
+        }
+
+        .video span {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            gap: 20px;
+
+
+
+        }
+
+
+        /* animation */
+        @media screen and (max-width:992px) {
+
+            .navbar {
+                padding: 20px 20px;
+                margin-left: 120px;
+                margin-right: 120px;
+
+
+            }
+
+
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-right {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 260px;
+                height: 100vh;
+                background: #fff;
+                padding: 80px 20px;
+                transform: translateX(100%);
+                transition: .3s;
+                z-index: 999;
+            }
+
+            #menu-toggle:checked~.nav-right {
+                transform: translateX(0);
+            }
+
+            .nav-right ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-right ul li a {
+                color: black;
+            }
+
+            .text h1 {
+                font-size: 60px;
+                margin-top: -60px;
+            }
+
+            .second-section {
+                flex-direction: column;
+                margin-top: 50px;
+            }
+
+
+
+            .second-right img {
+
+                margin-left: 200px;
+
+                width: 630px;
+                height: 450px;
+                border-top-left-radius: 30%;
+                border-bottom-right-radius: 30%;
+            }
+
+
+            .third-section {
+                justify-content: center;
+                align-items: center;
+            }
+
+            .cards {
+                flex-direction: column;
+                justify-content: center;
+
+            }
+
+
+
+            .card1,
+            .card2,
+            .card3,
+            .card4 {
+                width: 70% !important;
+                margin-top: -40px;
+                margin-right: 150px;
+                height: 330px !important;
+
+
+                margin-left: 200px;
+
+                padding: 20px;
+
+                justify-content: center;
+                align-items: center;
+
+                text-align: center;
+                border-top-left-radius: 60px;
+                border-top-right-radius: 60px;
+                border-bottom-left-radius: 90px !important;
+                border-bottom-right-radius: 170px;
+
+            }
+
+            .card1 img {
+                height: 100px;
+                width: 100px;
+                object-fit: cover;
+                margin-top: 90px;
+            }
+
+
+            .person1,
+            .person2,
+            .person3,
+            .person4,
+            .person5,
+            .person6 {
+                width: 90% !important;
+                margin-top: 0px 0px 48px;
+                justify-content: center;
+            }
+
+            .man1 {
+                width: 90%;
+                height: auto;
+            }
+
+            .man1 img {
+                justify-content: center;
+                margin-top: -90px;
+
+            }
+
+            .man1 span {
+                display: block;
+                text-align: center;
+                margin-left: 0;
+            }
+
+            .bottom {
+                flex-direction: column;
+                width: 80%;
+
+
+            }
+
+
+
+
+            .bottom1,
+            .bottom2,
+            .bottom3 {
+                object-fit: cover;
+                width: 50% !important;
+                margin-left: 80px;
+
+
+            }
+
+
+
+            .footer {
+                flex-direction: column;
+                justify-content: center;
+
+
+            }
+
+            .footer1 {
+                align-items: center;
+                justify-content: center;
+                margin-left: 100px;
+            }
+
+            .underground {
+                justify-content: center;
+                font-size: 20px;
+            }
+
+
+        }
+
+        @media screen and (max-width:831px) {
+            .second-right img {
+                width: 550px;
+                margin-left: 110px;
+                height: auto;
+            }
+
+        }
+
+        @media screen and(max-width:741px) {
+            .second-right img {
+                width: 400px !important;
+                height: 400px;
+                margin-left: 60px;
+
+            }
+        }
+
+        /* mobile */
+
+
+        /* MOBILE RESPONSIVE */
+
+        @media screen and (max-width:768px) {
+
+            .navbar {
+                padding: 20px;
+                margin: 0;
+            }
+
+            .text h1 {
+                font-size: 40px;
+            }
+
+            .text p {
+                font-size: 16px;
+                padding: 0 15px;
+            }
+
+            .video span {
+                font-size: 16px;
+            }
+
+            .second-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .second-left {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .second-right {
+                text-align: center;
+            }
+
+            .second-right img {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+                margin-left: 0;
+                margin-top: 30px;
+            }
+
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card1,
+            .card2,
+            .card3,
+            .card4 {
+                width: 90% !important;
+            }
+
+            .six-cards {
+                padding: 20px;
+            }
+
+            .person1,
+            .person2,
+            .person3,
+            .person4,
+            .person5,
+            .person6 {
+                width: 100% !important;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .man1 {
+                width: 80% !important;
+                height: 50% !important;
+            }
+
+            .bottom {
+                flex-direction: column;
+                width: 70%;
+            }
+
+            .bottom1,
+            .bottom2,
+            .bottom3 {
+                width: 100% !important;
+                margin-left: 0 !important;
+            }
+
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer1 {
+                margin-left: 0;
+            }
+
+            .underground {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+        }
+
+
+
+        /* second-section */
+
+        .second-section {
+
+            display: flex;
+            justify-content: space-between;
+            margin-top: 130px;
+
+
+
+        }
+
+        .second-right {
+
+            height: 100%;
+
+
+        }
+
+        .second-left {
+
+            margin-left: 100px;
+        }
+
+        .second-left h1 {
+            font-size: 40px;
+            color: red;
+        }
+
+        .second-left p {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 400;
+            color: black;
+        }
+
+        .second-right img {
+            width: 630px;
+            height: 500px;
+            border-top-left-radius: 30%;
+            border-bottom-right-radius: 30%;
+        }
+
+        .second-left ul {
+            font-size: 18px;
+            margin-top: 40px;
+            margin-left: 17px;
+
+            color: black;
+        }
+
+        .second-left li {
+
+            padding-left: 13px;
+
+
+        }
+
+        .second-left li::marker {
+            color: red;
+            font-size: 30px;
+
+        }
+
+        .button {
+            margin-top: 50px;
+        }
+
+        .button button {
+            padding: 15px 35px;
+            background-color: #e63946;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        /* third-section */
+        .third-section {
+            margin-top: 250px;
+            margin-bottom: 100px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .third-section h1 {
+            color: red;
+            font-size: 40px;
+        }
+
+
+
+
+        /* cards */
+
+        .cards {
+            width: 100%;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+
+
+
+        .card1 {
+            background-color: #F8EFD4;
+
+        }
+
+        .card2 {
+            background-color: #DDF8F6;
+
+        }
+
+        .card3 {
+            background-color: #e6e7f6;
+
+        }
+
+        .card4 {
+            background-color: #F9E4E4;
+
+        }
+
+        .card1,
+        .card2,
+        .card3,
+        .card4 {
+            width: 320px;
+            padding: 30px;
+            height: 400px;
+            text-align: center;
+            border-top-left-radius: 60px;
+            border-top-right-radius: 60px;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 170px;
+            color: gray;
+        }
+
+        .card1 img,
+        .card2 img,
+        .card3 img,
+        .card4 img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: -90px;
+
+        }
+
+        .card1 h1,
+        .card2 h1,
+        .card3 h1,
+        .card4 h1 {
+            font-size: 24px;
+            margin-top: 40px;
+
+        }
+
+        .card1 span,
+        .card2 span,
+        .card3 span,
+        .card4 span {
+            color: gray;
+            font-size: 20px;
+        }
+
+        .card1 p,
+        .card2 p,
+        .card3 p,
+        .card4 p {
+            color: black;
+            font-size: 17px;
+            margin-top: 40px;
+        }
+
+        /* fouth-section */
+        .fouth-section {
+            margin-top: 200px;
+            margin-bottom: 100px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .fouth-section h1 {
+            color: red;
+            font-size: 40px;
+        }
+
+
+        .six-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 60px;
+            margin: 20px;
+        }
+
+        .person1,
+        .person2,
+        .person3,
+        .person4,
+        .person5,
+        .person6 {
+            width: 30%;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .person4,
+        .person5,
+        .person6 {
+            margin-top: 50px;
+        }
+
+
+
+        .person1 i,
+        .person2 i,
+        .person3 i,
+        .person4 i,
+        .person5 i,
+        .person6 i {
+            font-size: 60px;
+            color: black;
+            min-width: 80px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-content p {
+            font-size: 17px;
+        }
+
+        .service-content a {
+            display: inline-block;
+            margin-top: 20px;
+            color: red;
+            text-decoration: none;
+        }
+
+
+
+
+
+
+        /* fifth-section */
+        .fifth-section {
+            margin-top: 150px;
+            margin-bottom: 150px;
+            text-align: center;
+
+        }
+
+        .fifth-section h1 {
+            color: red;
+            font-size: 40px;
+        }
+
+        .man1 {
+            background-color: #F8EFD4;
+            height: 350px;
+            width: 700px;
+            padding: 40px;
+            justify-content: center;
+            margin: auto;
+            align-items: center;
+            border-top-left-radius: 60px;
+            border-top-right-radius: 60px;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 180px;
+            text-align: center;
+
+
+
+
+
+        }
+
+        .man1 img {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            margin-top: -90px;
+        }
+
+        .man1 span {
+            font-size: 20px;
+            margin-top: 20px;
+
+        }
+
+        .man1 h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .man1 p {
+            margin-top: 30px;
+            font-family: Arial, sans-serif;
+            font-style: italic;
+            font-size: 20px;
+        }
+
+        /* .sixth-section */
+        .sixth-section {
+            margin-top: 210px;
+            margin-bottom: 140px;
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        .sixth-section h1 {
+            color: red;
+            font-size: 40px;
+        }
+
+        /* / */
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-left: 120px;
+            margin-right: 120px;
+
+        }
+
+        .bottom1,
+        .bottom2,
+        .bottom3 {
+            width: 33%;
+
+        }
+
+        .bottom img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+
+        }
+
+        .bottom11 {
+            width: 100%;
+            background: white;
+            padding: 25px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .bottom a {
+            color: red;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+
+        }
+
+        .bottom span {
+            color: gray;
+            font-size: 20px;
+            margin-top: 40px;
+        }
+
+        .bottom11 p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .bottom11 h3:hover {
+            color: red;
+        }
+
+        /* .seventh-section */
+        .seventh-section {
+            margin-top: 200px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 150px;
+            margin: 30px;
+        }
+
+        .footer1 p {
+            margin-top: 20px;
+        }
+
+        .footer1 h3 {
+            margin-top: 25px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: gray;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+        .social-icons i {
+            color: white;
+
+            font-size: 18px;
+        }
+
+        .underground {
+            justify-content: center;
+            font-size: 18px;
+            color: gray;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            display: flex;
+        }
+
+        .underground a {
+            color: red;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .fa-heart {
+            color: red;
+            font-size: 20px;
+        }
+
+        /* animation */
+
+        /* HERO ANIMATION */
+
+        .text h1 {
+            opacity: 0;
+            animation: test 1s ease forwards;
+        }
+
+        .text p {
+            opacity: 0;
+            animation: test 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .video {
+            opacity: 0;
+            animation: test 1s ease forwards;
+            animation-delay: 1s;
+            color: red;
+            border-radius: 50%;
+        }
+
+        .video a :hover {
+            color: red;
+        }
+
+        .video a {
+            animation: test 1.5s 5s;
+        }
+
+        .person1 i:hover {
+            color: green;
+        }
+
+        .bottom img:hover {
+            transform: scale(0.4)
+        }
+
+
+        @keyframes test {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LINEAR GRADIENT -->
+    <div class="linear-gradient"></div>
+
+    <!-- HERO SECTION -->
+
+    <div class="big">
+
+        <!-- NAVBAR -->
+        <div class="navbar">
+
+            <div class="nav-left">
+                <a href="nova.html">NOVA</a>
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+
+            <label for="menu-toggle" class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <label for="menu-toggle" class="overlay"></label>
+
+            <div class="nav-right">
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="#">DROPDOWN</a></li>
+                    <li><a href="classes.html">CLASSES</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="CONTACT US.html">CONTACT US</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- HERO TEXT -->
+        <div class="text">
+            <h1>It's Never Too<br> Late to Defend Yourself</h1>
+
+            <p>Far far away, behind the word mountains</p>
+
+            <div class="video">
+                <a href="https://www.youtube.com/watch?v=mwtbEGNABWU">
+                    <i class="fa-solid fa-play"></i>
+                </a>
+                <span>WATCH VIDEO</span>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="second-section">
+
+
+        <div class="second-left">
+            <img src="https://preview.colorlib.com/theme/nova/images/karate-divider.png" alt="divider">
+
+            <h1>Encourage Your</h1>
+            <h1>Kids to Learn</h1>
+
+
+            <p>
+                Far far away, behind the word mountains, far from<br>
+                the countries Vokalia and Consonantia, there live the
+                blind <br>texts. Separated they live in Bookmarksgrove right at the<br>
+                coast of the Semantics, a large language ocean.
+            </p>
+            <ul>
+                <li>Taekwondo</li>
+                <li>Brazilian Jiu-Jitsu</li>
+                <li>Muay Thai</li>
+                <li>Basic Defense</li>
+            </ul>
+            <div class="button">
+                <button>ENROLL NOW</button>
+            </div>
+        </div>
+
+        <div class="second-right">
+            <img src="https://preview.colorlib.com/theme/nova/images/hero_1.jpg" alt="karate">
+        </div>
+    </div>
+
+
+    <!-- third-section -->
+    <div class="third-section">
+
+        <img src="https://preview.colorlib.com/theme/nova/images/karate-divider.png" alt="divider">
+        <h1>Our Teachers</h1>
+
+
+
+    </div>
+    <!-- three-card -->
+    <div class="cards">
+
+        <div class="card1">
+            <img src="https://preview.colorlib.com/theme/nova/images/person_1.jpg">
+            <h1>Maria Jones
+            </h1>
+            <span>Instructor</span>
+
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                there
+                live
+                the
+                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a
+                large language
+                ocean.</p>
+
+
+        </div>
+        <div class="card2">
+            <img src="https://preview.colorlib.com/theme/nova/images/person_2.jpg">
+            <h1>James Campbel</h1>
+            <span>Instructor</span>
+
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                the
+                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
+                language
+                ocean.</p>
+
+        </div>
+        <div class="card3">
+            <img src="https://preview.colorlib.com/theme/nova/images/person_3.jpg">
+            <h1>Rob Smith</h1>
+            <span>Instructor</span>
+
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                the
+                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
+                language
+                ocean.</p>
+
+
+        </div>
+        <div class="card4">
+            <img src="https://preview.colorlib.com/theme/nova/images/person_4.jpg">
+            <h1>Kaye Hamilton</h1>
+            <span>Instructor</span>
+
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                the
+                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
+                language
+                ocean.</p>
+
+
+        </div>
+
+    </div>
+    <div class="fouth-section">
+        <img src="https://preview.colorlib.com/theme/nova/images/karate-divider.png" alt="divider">
+
+        <h1>Our Services</h1>
+
+    </div>
+    <div class="six-cards">
+
+        <div class="person1">
+            <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS92PRfM9tpfnEOquZaU_NB5Zs9heV65OqY9A&s"> -->
+            <i class="fa-solid fa-medal"></i>
+
+            <div class="service-content">
+                <h3>Won Medal</h3>
+                <p>
+                    Separated they live in Bookmarksgrove right
+                    at the coast of the Semantics, a large
+                    language ocean.
+                </p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+
+        <div class="person2">
+            <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS92PRfM9tpfnEOquZaU_NB5Zs9heV65OqY9A&s"> -->
+            <i class="fa-solid fa-shirt"></i>
+            <div class="service-content">
+                <h3>Wear Kimono</h3>
+                <p>
+                    Separated they live in Bookmarksgrove right
+                    at the coast of the Semantics, a large
+                    language ocean.
+                </p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+
+        <div class="person3">
+            <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS92PRfM9tpfnEOquZaU_NB5Zs9heV65OqY9A&s"> -->
+            <i class="fa-solid fa-user-ninja"></i>
+            <div class="service-content">
+                <h3>Martial Arts</h3>
+                <p>
+                    Separated they live in Bookmarksgrove right
+                    at the coast of the Semantics, a large
+                    language ocean.
+                </p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+
+        <div class="person4">
+            <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS92PRfM9tpfnEOquZaU_NB5Zs9heV65OqY9A&s"> -->
+            <i class="fa-solid fa-shirt"></i>
+            <div class="service-content">
+                <h3>Wear Kimono 2</h3>
+                <p>
+                    Separated they live in Bookmarksgrove right
+                    at the coast of the Semantics, a large
+                    language ocean.
+                </p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+
+        <div class="person5">
+            <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS92PRfM9tpfnEOquZaU_NB5Zs9heV65OqY9A&s"> -->
+            <i class="fa-solid fa-user-ninja"></i>
+            <div class="service-content">
+                <h3>Martial Arts Kids</h3>
+                <p>
+                    Separated they live in Bookmarksgrove right
+                    at the coast of the Semantics, a large
+                    language ocean.
+                </p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+
+        <div class="person6">
+            <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS92PRfM9tpfnEOquZaU_NB5Zs9heV65OqY9A&s"> -->
+            <i class="fa-solid fa-hand-fist"></i>
+            <div class="service-content">
+                <h3>Martial Art</h3>
+                <p>
+                    Separated they live in Bookmarksgrove right
+                    at the coast of the Semantics, a large
+                    language ocean.
+                </p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="fifth-section">
+        <img src="https://preview.colorlib.com/theme/nova/images/karate-divider.png" alt="divider">
+
+        <h1>Testimonials</h1>
+
+    </div>
+    <div class="man1">
+        <img src="https://preview.colorlib.com/theme/nova/images/person_1.jpg">
+        <h1>Maria Jones</h1>
+        <span>Instructor</span>
+
+        <p>”Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+            blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
+            ocean.”</p>
+
+
+    </div>
+    <!-- sixth-section -->
+    <div class="sixth-section">
+        <img src="https://preview.colorlib.com/theme/nova/images/karate-divider.png" alt="divider">
+
+        <h1>Blog Posts</h1>
+    </div>
+    <div class="bottom">
+        <div class="bottom1">
+            <img src="https://preview.colorlib.com/theme/nova/images/post_3.jpg">
+            <div class="bottom11">
+                <span>July 17, 2019 by</span>
+                <a href="">Admin</a>
+                <h3>How Awesome Stay connected
+                </h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                    live
+                    the blind texts.</p>
+                <a href="#">Read More</a>
+
+            </div>
+
+        </div>
+        <div class="bottom2">
+            <img src="https://preview.colorlib.com/theme/nova/images/post_2.jpg">
+            <div class="bottom11">
+                <span>July 17, 2019 by</span>
+                <a href="">Admin</a>
+                <h3>We Need Unlimitted People</h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                    live
+                    the blind texts.</p>
+                <a href="#">Read More</a>
+
+            </div>
+        </div>
+        <div class="bottom3">
+            <img src="https://preview.colorlib.com/theme/nova/images/post_4.jpg">
+            <div class="bottom11">
+                <span>July 17, 2019 by</span>
+                <a href="">Admin</a>
+                <h3>Important of getting <br>a notifications</h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                    live
+                    the blind texts.</p>
+                <a href="#">Read More</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="seventh-section">
+
+    </div>
+    <div class="footer">
+        <div class="footer1">
+            <h2>About Foundation</h2>
+            <p>Far far away, behind the word mountains, far from<br> the countries Vokalia and Consonantia, there live
+                the
+                blind texts.</p>
+            <h3>Connect</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+
+                <a href="#"><i class="fa-solid fa-circle-notch"></i></a>
+            </div>
+
+        </div>
+        <div class="footer1">
+            <h2>Links</h2>
+            <p>About Us</p>
+            <p>Services</p>
+            <p>News</p>
+            <p>Careers</p>
+            <p>Contact</p>
+
+
+        </div>
+        <div class="footer1">
+            <h2>Company</h2>
+            <p>About Us</p>
+            <p>Services</p>
+            <p>News</p>
+            <p>Careers</p>
+            <p>Contact</p>
+
+
+        </div>
+        <div class="footer1">
+            <h2>Contact</h2>
+            <p>43 Raymouth Rd. Baltemoer, London 3910</p>
+            <p>+1(123)-456-7890</p>
+            <p>+1(123)-456-7890</p>
+            <p>info@mydomain.com</p>
+
+
+        </div>
+    </div>
+    <div class="underground">
+        <p>Copyright ©2026 All rights reserved | This template is made with </p>
+        <i class="fa-solid fa-heart"></i>by
+        <a href="#"> Colorlib</a>
+    </div>
+
+
+
+
+</html>
+</body>
